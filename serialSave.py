@@ -1,4 +1,3 @@
-#!/usr/bin/python
 # reads serial input from pico
 import serial
 import os
@@ -23,8 +22,7 @@ for i in range(3):
     file.write(str(ser.readline().decode("utf-8").strip()) + "\n")
     #file.write("volt, curr, temp1, temp2, hum%")
 file.close()
-    
-    
+
 # try:
 #     file = open("data.txt", "a")
 #     file.write("nico\n")
