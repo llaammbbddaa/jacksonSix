@@ -60,7 +60,7 @@ while True:
             elif ("laser_off" in command):
                 laser_off()
             elif ("set_current" in command):
-                newCurrent = int(command[command.index(" "):])
+                newCurrent = float(command[command.index(" "):])
                 set_current(newCurrent)
             elif ("get_readings" in command):
                 get_readings()
