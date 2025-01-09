@@ -17,7 +17,7 @@ else:
     file = open(formatted_date_time, "w")
     file.write("volt V, curr mA, temp1 C, temp2 C, hum%\n")
 
-for i in range(3):
+for i in range(12):
     print(ser.readline().decode("utf-8").strip())
     file.write(str(ser.readline().decode("utf-8").strip()) + "\n")
     #file.write("volt, curr, temp1, temp2, hum%")
