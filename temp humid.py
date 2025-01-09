@@ -1,3 +1,6 @@
+# temp humidity sensor
+# collin
+
 import time
 import board
 import adafruit_dht
