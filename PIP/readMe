@@ -1,0 +1,8 @@
+integration between files for both computer and pico
+
+basically just ensuring that all of the parts can work together as a whole
+the pico instrumentality project or PIP
+particularly through two different main files (one for computer and one for pico)
+and then referencing each file as a library / import
+
+ALL OF THE NEW STUFF is on a file
