@@ -21,6 +21,7 @@ while True:
     
     outputTest = input("enter command >> ")
     
+    # Send the command to the Pico
     # "\r\n" are required as well as sending the string as a set of bytes
     ser.write(bytes((outputTest + "\r\n"), "utf-8"))
     
