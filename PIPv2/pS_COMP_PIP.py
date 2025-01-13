@@ -24,6 +24,7 @@ import serial
 import time
 
 # for testing
+# Function to initialize the serial communication with the Pico
 def transferStuff(pico=None):
     if pico != None:
         pico.write(bytes(("test" + "\r\n"), "utf-8"))
@@ -46,7 +47,7 @@ def pleaseStop(pico=None):
 # begin command sending sequence, as a def statement
 def beginSend(pico=None):
     
-    if pico != None:
+    if pico != None: # Check if a Pico serial object is provided
             
         while True:
             
