@@ -30,12 +30,14 @@ import time
 red = digitalio.DigitalInOut(board.GP0)
 red.direction = digitalio.Direction.OUTPUT
 
+# Function to blink the LED as a basic functionality test
 def test():
     red.value = True
     time.sleep(1)
     red.value = False
     time.sleep(1)
 
+# Placeholder function for turning the laser on
 def laser_on():
     print("laser_on")
 
@@ -46,9 +48,10 @@ def set_current(nC):
     print("set_current")
     for i in range(nC):
         test()
-    
+
+# Placeholder function for collecting readings
 def get_readings():
-    print("get_readings")
+    print("get_readings") # Print feedback to indicate data collection
 
 # continually listens to serial for commands
 def beginListen():
