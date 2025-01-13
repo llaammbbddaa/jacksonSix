@@ -13,12 +13,14 @@ import time
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import matplotlib.pyplot as plt
 
+# Define the main class for graphing data
 class GraphData:
     def __init__(self, root):
         self.root = root
         self.root.title("Data Plotter")
         self.frame = ctk.CTkFrame(self.root)
         self.frame.pack(fill="both", expand=True)
+        # Create a Matplotlib figure and canvas to embed in the Tkinter frame
         self.figure, self.ax = plt.subplots()
         self.canvas = FigureCanvasTkAgg(self.figure, master=self.frame)
         self.canvas_widget = self.canvas.get_tk_widget()
@@ -34,7 +36,7 @@ class GraphData:
 
     def update_graph(self, filename):
         # Function to update the graph
-        start_time = time.time()
+        start_time = time.time() # Record the start time for time-based x-axis
         while True:
             time.sleep(1)  # Simulate real-time updates
             try:
@@ -75,6 +77,6 @@ class GraphData:
     def threading(self, filename):
         # Start a thread for update_graph
         thread = threading.Thread(target=self.update_graph, args=(filename,))
-        thread.daemon = True
-        time.sleep(3)
+        thread.daemon = True # Set thread as daemon so it exits when the main program does
+        time.sleep(3) # Add a delay before starting the thread
         thread.start()
