@@ -23,6 +23,7 @@ import time
 red = digitalio.DigitalInOut(board.GP0)
 red.direction = digitalio.Direction.OUTPUT
 
+# Function to blink the red LED for testing
 def test():
     red.value = True
     time.sleep(1)
@@ -35,6 +36,8 @@ def laser_on():
 def laser_off():
     print("laser_off")
     
+# Function to set the current of the laser
+# nC: The new current value in milliamps (mA)
 def set_current(nC):
     print("set_current")
     for i in range(nC):
