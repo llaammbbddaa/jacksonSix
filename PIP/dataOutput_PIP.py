@@ -39,7 +39,8 @@ def beginSensing(tempSensor=None, voltSensor=None, dht=None):
         current = (voltSensor.current) # in mA
         temp2 = dht.temperature
         hum = dht.humidity
-        
+
+        # Print sensor data in a comma-separated format
         print(str(voltage) + ", " + str(current) + ", " + str(temp1) + ", " + str(temp2) + ", " + str(hum))
     else:
         print("something is wrong with one of the sensors")
