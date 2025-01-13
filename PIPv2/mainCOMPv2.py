@@ -11,10 +11,13 @@ import customtkinter as ctk
 import time
 
 def main():
+    # Initialize serial communication with the Pico
     pico = pS_COMP_PIP.beginSerial()
+    # Open a file for saving serial data
     file = serialSave_PIP.beginFile()
     fileName = serialSave_PIP.getFileName(file)
 
+    # Initialize the GUI application
     app = ctk.CTk()
     graph = GraphData(app)
 
@@ -22,15 +25,19 @@ def main():
     graph.threading(fileName)
 
     try:
+        # Main loop for reading and writing data
         while True:
-            serialSave_PIP.beginWrite(pico, file)
+            serialSave_PIP.beginWrite(pico, file) # Write serial data to the file
             time.sleep(1)
     except KeyboardInterrupt:
+        # Handle the program's exit when interrupted (Ctrl+C)
         file.close()
-        pS_COMP_PIP.pleaseStop(pico)
+        pS_COMP_PIP.pleaseStop(pico) # Stop Pico communication safely
         print("Program safely exited")
 
+    # Start the GUI main loop to display the application
     app.mainloop()
 
+# Entry point of the program
 if __name__ == "__main__":
     main()
