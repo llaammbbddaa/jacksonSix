@@ -1,4 +1,4 @@
-# mainPLEASEWORK.py
+# mainDelta.py
 # computer side
 # main file, will host the graphing on the main thread, and then everything else onto a different thread (threading)
 # Johnny Sarrouf and David Jack Jackson
@@ -21,7 +21,7 @@ def stopProgram():
         file.close()
     commandPico.pleaseStop(pico)
     isStop = True
-    print("isStop" + str(isStop))
+    #print("isStop" + str(isStop))
     print("program quit")
     input("")
 
@@ -82,7 +82,7 @@ def read_serial_data(pico, file, data, data_lock, update_queue):
         except (ValueError, IndexError):
             if not isStop:
                 print(f"Error parsing line: {line}")
-                print("isStop" + str(isStop))
+                #print("isStop" + str(isStop))
         except serial.SerialException:
             print("Serial connection error. Exiting...")
             break
