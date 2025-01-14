@@ -1,0 +1,7 @@
+okay so everything works now, and is in dark mode
+one last update needs to be added in regards to how programs are shut down
+but other than that all works well
+the files here are just on the computer side
+
+it generates six graphs, and writes to a text file
+it can also enter commands to be sent to the raspberry pico
