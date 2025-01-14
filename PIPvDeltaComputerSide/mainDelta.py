@@ -15,14 +15,15 @@ import queue
 #import serialSaveDelta as serialSave not needed because this already saves the data
 import pS_COMP_PIP as commandPico
 
-
 def stopProgram():
-    global file, pico
+    global file, pico, isStop
     if file:
         file.close()
-    if pico:
-        pico.close()
     commandPico.pleaseStop(pico)
+    isStop = True
+    print("isStop" + str(isStop))
+    print("program quit")
+    input("")
 
 def beginSerial(port, baud):
     try:
@@ -79,7 +80,9 @@ def read_serial_data(pico, file, data, data_lock, update_queue):
                     elapsed_time += 1
                 update_queue.put("update")
         except (ValueError, IndexError):
-            print(f"Error parsing line: {line}")
+            if not isStop:
+                print(f"Error parsing line: {line}")
+                print("isStop" + str(isStop))
         except serial.SerialException:
             print("Serial connection error. Exiting...")
             break
@@ -122,6 +125,13 @@ def setupGUI():
     canvas = FigureCanvasTkAgg(fig, master=frame)
     canvas_widget = canvas.get_tk_widget()
     canvas_widget.pack(fill="both", expand=True)
+    
+    # Handle window close
+    def on_closing():
+        app.destroy()
+        stopProgram()
+
+    app.protocol("WM_DELETE_WINDOW", on_closing)
 
     return axes, canvas, app, humidity_label
 
@@ -150,6 +160,4 @@ if __name__ == "__main__":
         app.mainloop()
     except KeyboardInterrupt:
         stopProgram()
-    except:
-        stopProgram()
-        print("error -> {e}")
+
