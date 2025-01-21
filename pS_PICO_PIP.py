@@ -27,7 +27,7 @@ import usb_cdc
 import time
 
 #initialize led on PIN1 or GP0
-red = digitalio.DigitalInOut(board.GP0)
+red = digitalio.DigitalInOut(board.LED)
 red.direction = digitalio.Direction.OUTPUT
 
 def test():
