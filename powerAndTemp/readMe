@@ -1,3 +1,6 @@
 only four graphs
 power and temp
 one for laser and one for opc
+
+mainDelta and pS_COMP_PICO for computer
+code.py for pico
